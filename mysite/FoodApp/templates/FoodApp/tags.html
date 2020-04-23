@@ -1,0 +1,14 @@
+<ul>
+    { % for athelit in athelits_list % }
+    <li>{{athelit.name}}</li>
+    {% endfor %}
+</ul>
+
+{% extends "base.html" %}
+{% block title %} My amazing blog{% endblock %}
+{% block content %}
+{% for entry in blog_list %}
+    <h2>{{ entry.title }}</h2>
+    <p>{{ entry.body }}</p>
+{% endfor %}
+{% endblock %}
