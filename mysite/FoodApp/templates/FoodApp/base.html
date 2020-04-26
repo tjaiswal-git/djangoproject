@@ -20,6 +20,10 @@
         {% else %}
             <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
         {% endif %}
+         <form class="form-inline ml-auto" method="GET" action="">
+                <input type="text" name="item_search" class="form-control mr-sm-2" placeholder="Search Food Item">
+                <button type="submit" class="btn btn-outline-light">Search</button>
+            </form>
     </div>
 </nav>
 {% if messages %}
