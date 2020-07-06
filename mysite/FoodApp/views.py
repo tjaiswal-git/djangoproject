@@ -31,7 +31,19 @@ class IndexClassView(ListView):
     template_name = 'FoodApp/index.html'
     context_object_name = 'item_list'
     paginate_by = 4
-    queryset = Item.objects.all()
+
+    def get_queryset(self):
+        query = self.request.GET.get('item_search')
+        if query != '' and query is not None:
+            object_list = self.model.objects.filter(item_name__icontains=query)
+            print(object_list)
+            if not object_list:
+                print("No objectlist")
+            else:
+                print("Yes have")
+        else:
+            object_list = self.model.objects.all()
+        return object_list
 
 
 def item(request):
